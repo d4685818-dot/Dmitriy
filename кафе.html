@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Кафе «Вкусно»</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+      background-color: #fff8f0;
+      color: #333;
+    }
+    header {
+      background-color: #ff7f50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 15px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    section {
+      padding: 30px;
+      max-width: 800px;
+      margin: auto;
+    }
+    h2 { color: #ff7f50; }
+    ul { list-style: none; padding: 0; }
+    ul li { padding: 5px 0; }
+    form input, form textarea, form button {
+      width: 100%; padding: 10px; margin: 5px 0;
+      border: 1px solid #ccc; border-radius: 5px;
+    }
+    form button {
+      background-color: #ff7f50; color: white;
+      border: none; cursor: pointer;
+      font-size: 16px;
+    }
+    form button:hover { background-color: #ff6347; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Кафе «Вкусно»</h1>
+  <nav>
+    <a href="#menu">Меню</a>
+    <a href="#contacts">Контакты</a>
+    <a href="#order">Заказать стол</a>
+  </nav>
+</header>
+
+<section id="menu">
+  <h2>Наше меню</h2>
+  <ul>
+    <li>Капучино — 200 ₽</li>
+    <li>Латте — 220 ₽</li>
+    <li>Салат Цезарь — 350 ₽</li>
+    <li>Паста Карбонара — 400 ₽</li>
+    <li>Десерт Тирамису — 250 ₽</li>
+  </ul>
+</section>
+
+<section id="contacts">
+  <h2>Контакты</h2>
+  <p>Адрес: г. Москва, ул. Примерная, 12</p>
+  <p>Телефон: +7 (900) 123-45-67</p>
+  <p>Email: cafe@example.com</p>
+  <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Aexample" width="100%" height="300" frameborder="0"></iframe>
+</section>
+
+<section id="order">
+  <h2>Заказать стол</h2>
+  <form id="orderForm">
+    <input type="text" name="name" placeholder="Ваше имя" required>
+    <input type="tel" name="phone" placeholder="Телефон" required>
+    <textarea name="message" placeholder="Комментарий" required></textarea>
+    <button type="submit">Отправить</button>
+  </form>
+  <p id="formMessage" style="color: green;"></p>
+</section>
+
+<script>
+  // Безопасная форма (только клиентская проверка)
+  document.getElementById('orderForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = this.name.value.trim();
+    const phone = this.phone.value.trim();
+    const message = this.message.value.trim();
+    
+    if(name && phone && message){
+      // В реальном сайте тут будет отправка на почту или сервер
+      document.getElementById('formMessage').innerText = 
+        "Спасибо! Ваша заявка отправлена.";
+      this.reset();
+    } else {
+      alert("Пожалуйста, заполните все поля.");
+    }
+  });
+</script>
+
+</body>
+</html>
